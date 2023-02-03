@@ -1,0 +1,136 @@
+
+/* ------ Form ------ */
+
+.form--container {
+  /* width: min(45rem, 100%); */
+  width: 100%;
+  max-width: 768px;
+  height: 80%;
+  background: white;
+  border-radius: 5px;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  /* padding-top: 1rem; */
+  margin-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  padding: var(--marginMobile);
+  margin-top: 2rem;
+}
+
+.navigation--buttons {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navigation--buttons > div {
+  flex-grow: 1;
+}
+
+.navigation--buttons svg {
+  transform: translateY(2px);
+  font-size: 2rem;
+}
+
+.navigation--buttons button {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  background: none;
+  transition: 400ms;
+}
+
+ #next-button {
+   justify-content: flex-end;
+ }
+
+ @media (min-width: 1024px) {
+  .navigation--buttons button:hover {
+    color: var(--mid);
+    transition: 200ms;
+  }
+ }
+
+
+/* ------ FormType ------ */
+
+.form {
+  flex-direction: column;
+  margin: auto;
+}
+
+.form--type--selector {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  background: none;
+  border: 2px solid var(--mid);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  text-align: left;
+}
+
+.options {
+  width: 95%;
+  margin: auto;
+  list-style: none;
+  /* text-align: center; */
+  background: var(--mid);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 2px;
+  max-height: 0px;
+  transition: max-height ease-out 300ms;
+  overflow: scroll;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.options.show {
+  max-height: 230px;
+}
+
+.options > li {
+  position: relative;
+  z-index: 0;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  border-top: 2px solid var(--light);
+  transition: 300ms;
+  visibility: none;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.options.show > li {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.options > li:last-of-type {
+  border-bottom: 2px solid var(--light);
+}
+
+.options > li:hover {
+  background: var(--light);
+}
+

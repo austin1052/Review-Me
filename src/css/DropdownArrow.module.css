@@ -1,0 +1,28 @@
+.selectArrow {
+  width: 20px;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transition: 300ms;
+  border-radius: 5px;
+}
+
+.right {
+  right: 1rem;
+  background: var(--text);
+  transform: rotate(135deg);
+} 
+
+.left {
+  right: calc(1rem + 12px);
+  background: var(--text);
+  transform: rotate(45deg);
+} 
+
+.left.rotate {
+  transform: rotate(-45deg);
+} 
+
+.right.rotate {
+  transform: rotate(45deg);
+} 
