@@ -47,11 +47,11 @@ const Form = () => {
     e.preventDefault();
   }
 
-  const resetInputs = () => {
-    setTypeInput("");
-    setNameInput("");
-    setDetailsInput("");
-  }
+  // const resetInputs = () => {
+  //   setTypeInput("");
+  //   setNameInput("");
+  //   setDetailsInput("");
+  // }
 
   return (
     <>
