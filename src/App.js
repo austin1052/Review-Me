@@ -12,7 +12,7 @@ function App() {
             <Nav />
             <div className="background">
               <Routes>
-                <Route exact path="/home" element={<Form />} />
+                <Route exact path="/" element={<Form />} />
                 <Route exact path="/reviews" element={<Reviews />} />
               </Routes>
             </div>
