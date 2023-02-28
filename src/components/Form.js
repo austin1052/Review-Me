@@ -9,7 +9,7 @@ const Form = () => {
 
   const [result, setResult] = useState("");
   const [page, setPage] = useState(1);
-  const { typeInput, setTypeInput, nameInput, setNameInput, detailsInput, setDetailsInput } = useContext(FormContext)
+  const { typeInput, nameInput, detailsInput } = useContext(FormContext)
 
   console.log(result);
   const getPage = () => {
