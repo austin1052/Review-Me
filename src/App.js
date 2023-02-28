@@ -1,25 +1,23 @@
 import { Nav, Form, Reviews } from "./components"
-import { ReviewProvider, FormProvider } from "./Contexts";
+import { FormProvider } from "./Contexts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./css/App.css";
 
 function App() {
   return (
-    <ReviewProvider>
-      <FormProvider>
-        <Router>
-          <div className="app">
-            <Nav />
-            <div className="background">
-              <Routes>
-                <Route exact path="/" element={<Form />} />
-                <Route exact path="/reviews" element={<Reviews />} />
-              </Routes>
-            </div>
+    <FormProvider>
+      <Router>
+        <div className="app">
+          <Nav />
+          <div className="background">
+            <Routes>
+              <Route path="/" element={<Form />} />
+              <Route path="/reviews" element={<Reviews />} />
+            </Routes>
           </div>
-        </Router>
-      </FormProvider>
-    </ReviewProvider>
+        </div>
+      </Router>
+    </FormProvider>
   );
 }
 
