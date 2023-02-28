@@ -37,11 +37,14 @@ const Form = () => {
     }
   }
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  const submitForm = async () => {
     const response = await fetchResponse(typeInput, nameInput, detailsInput);
     setResult(response.data.choices[0].text)
-    resetInputs();
+    // resetInputs();
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
   }
 
   const resetInputs = () => {
@@ -51,25 +54,38 @@ const Form = () => {
   }
 
   return (
-    // <div className="center">
     <>
       <div className="form--container">
         <form onSubmit={onSubmit}>
           {getPage()}
         </form>
+        <div className="details">
+          {
+            detailsInput.length > 0 && detailsInput.map((detail) => {
+              return (
+                <div>
+                  <div className="detail">{detail}</div>
+                  <div className="delete--detail"></div>
+                </div>
+              )
+            })
+          }
+        </div>
         <div className="navigation--buttons">
           {page > 1 &&
             <button id="back--button" onClick={prevPage}><BiIcons.BiChevronLeft /> back</button>
           }
           <div></div>
-          {page < 3 &&
+          {((page === 1 && typeInput) || (page === 2 && nameInput)) &&
             <button id="next--button" onClick={nextPage}>next <BiIcons.BiChevronRight /></button>
           }
+          {
+            page === 3 && detailsInput.length > 0 &&
+            <button type="submit" id="submit--button" onClick={submitForm}>get my review</button>
+          }
         </div>
-
       </div>
     </>
-    // </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import DropdownArrow from './DropdownArrow.js';
 import { FormContext } from '../Contexts'
 
@@ -6,27 +6,18 @@ const optionsList = [
   "Product",
   "Restaurant",
   "Shop",
-  "Austin",
   "Game",
   "Experience",
   "Hotel"
 ];
 
 const FormType = () => {
-  // const [isMounted, setIsMounted] = useState(false);
+  const { typeInput, setTypeInput } = useContext(FormContext);
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState();
-
 
   const toggleOptions = () => {
     setIsOptionsOpen(!isOptionsOpen);
   };
-
-  const { setTypeInput } = useContext(FormContext);
-
-  useEffect(() => {
-    setTypeInput(optionsList[selectedOption])
-  }, [selectedOption, setTypeInput])
 
   return (
     <>
@@ -39,12 +30,11 @@ const FormType = () => {
           aria-haspopup="listbox"
           aria-expanded={isOptionsOpen}
         >
-          {selectedOption !== undefined ? optionsList[selectedOption] : "Choose a review type"}
+          {typeInput && typeInput !== undefined ? typeInput : "Choose a review type"}
           <DropdownArrow isOptionsOpen={isOptionsOpen} />
         </button>
       </div>
       <div className="form--type--options">
-
         <ul
           className={`options ${isOptionsOpen ? "show" : ""}`}
           tabIndex={-1}
@@ -52,23 +42,21 @@ const FormType = () => {
         >
           {optionsList.map((option, index) => (
             <li
+              key={option}
               id={option}
               role="option"
               tabIndex={0}
-              aria-selected={selectedOption === index}
+              aria-selected={typeInput === index}
               onClick={() => {
-                setSelectedOption(index);
+                // setSelectedOption(index);
                 setIsOptionsOpen(false);
+                setTypeInput(optionsList[index])
               }}
             >
               {option}
             </li>
           ))}
         </ul>
-
-
-
-
       </div>
     </>
   );

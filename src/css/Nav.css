@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   /* height: 2.5rem; */
-  margin: 0 var(--marginMobile);
+  margin: var(--marginMobile);
+  margin-bottom: 0;
 }
 
 .nav > ul {
